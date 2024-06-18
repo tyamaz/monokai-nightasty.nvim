@@ -17,7 +17,9 @@ M.default = {
   -- Neutrals
   black = "#000001", -- #000000 could change to transparent
   charcoal = "#262626",
-  charcoal_medium = "#2b2b2b",
+  -- charcoal_medium = "#2b2b2b",
+  -- fit my zellij backgraound
+  charcoal_medium = "#300a24",
   charcoal_light = "#313131",
   grey_darker_alt = "#3e3e3e",
   grey_darker = "#444444",
@@ -31,7 +33,8 @@ M.default = {
   -- Functionals
   bg_darker = "#121212",
   bg_dark = "#1e1e1e",
-  bg = "#2b2b2b",
+  -- bg = "#2b2b2b",
+  bg = "#300a42",
   fg_gutter = "#3e3e3e",
   terminal_black = "#444444",
   comment = "#8a8a8a",
