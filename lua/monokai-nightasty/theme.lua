@@ -46,7 +46,7 @@ function M.setup(palette)
     ErrorMsg = { fg = c.white, bg = c.red }, -- error messages on the command line
     FloatBorder = { fg = c.border_highlight, bg = c.bg_float },
     FloatTitle = { fg = c.border_highlight, bg = c.bg_float },
-    Folded = { fg = c.blue, bg = c.bg_float, italic = true }, -- line used for closed folds
+    Folded = { fg = c.blue, bg = c.bg_float, italic = false }, -- line used for closed folds
     FoldColumn = { fg = c.orange, bg = options.transparent and c.none or c.bg_float }, -- used when foldcolumn ~= 0
     IncSearch = { fg = c.fg_search, bg = c.purple, bold = true }, -- 'IncSearch' highlighting; also used for the text replaced with ":s///c"
     LineNr = { fg = c.grey_dark }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
@@ -128,7 +128,7 @@ function M.setup(palette)
     -- SpecialChar = { }, --  special character in a constant
     -- SpecialComment = { }, -- special things inside a comment
     Statement = { fg = c.magenta }, -- (preferred) any statement
-    StorageClass = { fg = c.blue, italic = true }, -- static, register, volatile, etc.
+    StorageClass = { fg = c.blue, italic = false }, -- static, register, volatile, etc.
     String = { fg = c.yellow }, --   a string constant: "this is a string"
     Structure = { fg = c.blue }, -- struct, union, enum, etc.
     Tag = { fg = c.purple }, -- you can use CTRL-] on this
@@ -164,7 +164,7 @@ function M.setup(palette)
     DiagnosticWarn = { fg = c.warning },
     DiagnosticInfo = { fg = c.info },
     DiagnosticHint = { fg = c.hint },
-    DiagnosticUnnecessary = { italic = true, undercurl = true, sp = c.grey_light }, -- e.g. unused variables
+    DiagnosticUnnecessary = { italic = false, undercurl = true, sp = c.grey_light }, -- e.g. unused variables
 
     DiagnosticVirtualTextError = { fg = c.error, bg = util.darken(c.error, 0.08) }, -- Used for "Error" diagnostic virtual text
     DiagnosticVirtualTextWarn = { fg = c.warning, bg = util.darken(c.warning, 0.08) }, -- Used for "Warning" diagnostic virtual text
@@ -199,8 +199,8 @@ function M.setup(palette)
 
     -- Identifiers
     ["@variable"] = { fg = c.fg, style = options.hl_styles.variables }, -- any variable name that does not have another highlight.
-    ["@variable.builtin"] = { fg = c.grey_light, italic = true }, -- built-in variable names (e.g. `this`, `self`)
-    ["@variable.parameter"] = { fg = c.orange, italic = true }, -- parameters of a function
+    ["@variable.builtin"] = { fg = c.grey_light, italic = false }, -- built-in variable names (e.g. `this`, `self`)
+    ["@variable.parameter"] = { fg = c.orange, italic = false }, -- parameters of a function
     ["@variable.member"] = { fg = c.fg }, -- object and struct fields
 
     ["@constant"] = { link = "Constant" }, -- constant identifiers
@@ -230,12 +230,12 @@ function M.setup(palette)
 
     -- Types
     ["@type"] = { fg = c.blue }, -- type or class definitions and annotations
-    ["@type.builtin"] = { fg = c.blue, italic = true }, -- built-in types
+    ["@type.builtin"] = { fg = c.blue, italic = false }, -- built-in types
     ["@type.definition"] = { link = "Typedef" }, -- identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
     ["@type.qualifier"] = { link = "@keyword" }, -- type qualifiers (e.g. `const`)
 
     ["@attribute"] = { link = "PreProc" }, -- attribute annotations (e.g. Python decorators)
-    ["@attribute.builtin"] = { fg = c.magenta, italic = true }, -- Variable names that are defined by the languages, like `this` or `self`.
+    ["@attribute.builtin"] = { fg = c.magenta, italic = false }, -- Variable names that are defined by the languages, like `this` or `self`.
     ["@property"] = { fg = c.fg_dark }, -- the key in key/value pairs
 
     -- Functions
@@ -247,13 +247,13 @@ function M.setup(palette)
     ["@function.method"] = { link = "Function" }, -- method definitions
     ["@function.method.call"] = { link = "@function.method" }, -- method calls
 
-    ["@constructor"] = { fg = c.blue, italic = true }, -- constructor calls and definitions
+    ["@constructor"] = { fg = c.blue, italic = false }, -- constructor calls and definitions
     ["@operator"] = { link = "Operator" }, -- symbolic operators (e.g. `+` / `*`)
 
     -- Keywords
     ["@keyword"] = { fg = c.magenta, style = options.hl_styles.keywords }, -- keywords not fitting into specific categories
     ["@keyword.coroutine"] = { link = "@keyword" }, -- keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
-    ["@keyword.function"] = { fg = c.blue, italic = true }, -- keywords that define a function (e.g. `func` in Go, `def` in Python)
+    ["@keyword.function"] = { fg = c.blue, italic = false }, -- keywords that define a function (e.g. `func` in Go, `def` in Python)
     ["@keyword.operator"] = { link = "Operator" }, -- operators that are English words (e.g. `and` / `or`)
     ["@keyword.import"] = { link = "Include" }, -- keywords for including modules (e.g. `import` / `from` in Python)
     ["@keyword.storage"] = { link = "StorageClass" }, -- modifiers that affect storage in memory or life-time
@@ -286,7 +286,7 @@ function M.setup(palette)
     ["@markup"] = { link = "@none" },
 
     ["@markup.strong"] = { bold = true }, -- bold text
-    ["@markup.italic"] = { italic = true }, -- text with emphasis
+    ["@markup.italic"] = { italic = false }, -- text with emphasis
     ["@markup.strikethrough"] = { strikethrough = true }, -- strikethrough text
     ["@markup.underline"] = { underline = true }, -- underlined text (only for literal underline markup!)
 
@@ -298,7 +298,7 @@ function M.setup(palette)
     ["@markup.heading.5.marker"] = { link = "@tag" },
     ["@markup.heading.6.marker"] = { link = "@tag" },
 
-    ["@markup.quote"] = { fg = c.fg, bg = c.fg_gutter, italic = true }, -- block quotes
+    ["@markup.quote"] = { fg = c.fg, bg = c.fg_gutter, italic = false }, -- block quotes
     ["@markup.math"] = { link = "Special" }, -- math environments (e.g. `$ ... $` in LaTeX)
     ["@markup.environment"] = { link = "Macro" }, -- environments (e.g. in LaTeX)
     ["@markup.environment.name"] = { link = "Type" },
@@ -320,7 +320,7 @@ function M.setup(palette)
     ["@diff.delta"] = { link = "DiffChange" }, -- changed text (for diff files)
 
     ["@tag"] = { fg = c.magenta }, -- xml tag names
-    ["@tag.attribute"] = { fg = c.blue, italic = true }, -- xml tag attributes
+    ["@tag.attribute"] = { fg = c.blue, italic = false }, -- xml tag attributes
     ["@tag.delimiter"] = { fg = c.grey_light }, -- xml tag delimiters
 
     -- Non-highlighting captures
@@ -376,7 +376,7 @@ function M.setup(palette)
 
     -- Languages specifics
     ["@function.builtin.bash"] = { fg = c.blue },
-    ["@type.qualifier.c_sharp"] = { fg = c.orange, italic = true },
+    ["@type.qualifier.c_sharp"] = { fg = c.orange, italic = false },
     dosbatchError = { fg = c.red },
     ["@property.ini"] = { fg = c.orange },
     ["@constructor.lua"] = { fg = c.magenta },
@@ -402,7 +402,7 @@ function M.setup(palette)
     --- Cmp
     CmpDocumentation = { fg = c.fg, bg = c.bg_float },
     CmpDocumentationBorder = { fg = c.border_highlight, bg = c.bg_float },
-    CmpGhostText = { fg = c.grey_medium, italic = true }, -- Experimental. hl must be defined by the user
+    CmpGhostText = { fg = c.grey_medium, italic = false }, -- Experimental. hl must be defined by the user
     -- Left side
     CmpItemAbbr = { fg = c.fg, bg = c.none }, -- The suggestions
     CmpItemAbbrMatch = { fg = c.magenta, bg = c.none }, -- The current matches with the suggestions
@@ -461,7 +461,7 @@ function M.setup(palette)
     --- Dashboard
     -- General
     DashboardHeader = { fg = c.orange },
-    DashboardFooter = { fg = c.comment, italic = true },
+    DashboardFooter = { fg = c.comment, italic = false },
     -- Doom theme
     DashboardDesc = { fg = c.magenta },
     DashboardIcon = { fg = c.fg },
@@ -482,7 +482,7 @@ function M.setup(palette)
     DirvishArg = { fg = c.yellow, bg = c.grey_medium },
 
     --- GitSigns :h gitsigns-highlight-groups
-    GitSignsCurrentLineBlame = { fg = c.info, bg = c.bg_popup, italic = true },
+    GitSignsCurrentLineBlame = { fg = c.info, bg = c.bg_popup, italic = false },
     GitSignsAdd = { link = "diffAdded" },
     GitSignsChange = { link = "diffChanged" },
     GitSignsDelete = { link = "diffRemoved" },
@@ -524,7 +524,7 @@ function M.setup(palette)
     IblScope = { fg = c.blue, nocombine = true },
 
     --- Lazy
-    LazyCommitScope = { fg = c.orange, italic = true }, -- Git commit message. Scope string inside ()
+    LazyCommitScope = { fg = c.orange, italic = false }, -- Git commit message. Scope string inside ()
     LazyCommitType = { fg = c.magenta, bold = true }, -- Git commit message type. Like fix, feat, refactor, etc.
     LazyProgressDone = { link = "LazyCommitType" },
     LazyProgressTodo = { fg = c.fg_gutter, bold = true },
@@ -546,13 +546,13 @@ function M.setup(palette)
     netrwList = { link = "netrwDir" },
     netrwMarkFile = { fg = c.black, bg = c.orange, bold = true },
     netrwPlain = { link = "netrwCmdNote" },
-    netrwQuickHelp = { fg = c.fg_dark, italic = true },
-    netrwSymLink = { fg = c.blue, italic = true },
+    netrwQuickHelp = { fg = c.fg_dark, italic = false },
+    netrwSymLink = { fg = c.blue, italic = false },
     netrwTreeBar = { fg = c.fg_gutter, nocombine = true },
-    netrwVersion = { fg = c.orange, italic = true },
+    netrwVersion = { fg = c.orange, italic = false },
 
     --- Noice
-    NoiceLspProgressTitle = { fg = c.orange, italic = true }, -- Progress operation text
+    NoiceLspProgressTitle = { fg = c.orange, italic = false }, -- Progress operation text
     NoiceLspProgressSpinner = { fg = c.green }, -- Spinner and ticket
     NoiceFormatProgressDone = { fg = c.fg, bg = c.orange, bold = true }, -- bg = Bar color, fg = text above
     NoiceMini = { bg = c.bg_float },
@@ -597,7 +597,7 @@ function M.setup(palette)
     NvimTreeNormalNC = { link = "NvimTreeNormal" },
     NvimTreeOpenedFile = { bg = c.bg_highlight },
     NvimTreeOpenedFolderName = { fg = c.fg, bold = true },
-    NvimTreeRootFolder = { fg = c.magenta, italic = true },
+    NvimTreeRootFolder = { fg = c.magenta, italic = false },
     NvimTreeSpecialFile = { fg = c.green, underline = true },
     NvimTreeSymlink = { fg = c.blue },
     NvimTreeWinSeparator = {
@@ -615,7 +615,7 @@ function M.setup(palette)
     NeoTreeNormal = { fg = c.fg_sidebar, bg = c.bg_sidebar },
     NeoTreeNormalNC = { link = "NeoTreeNormal" },
     NeoTreeFileNameOpened = { fg = c.orange },
-    NeoTreeRootName = { fg = c.magenta, italic = true },
+    NeoTreeRootName = { fg = c.magenta, italic = false },
     NeoTreeDimText = { fg = c.fg_gutter },
     NeoTreeWinSeparator = { link = "NvimTreeWinSeparator" },
 
@@ -799,7 +799,7 @@ function M.setup(palette)
     -- MiniJump = { bg = c.magenta2, fg = "#ffffff" },
     -- MiniJump2dSpot = { fg = c.magenta2, bold = true, nocombine = true },
     -- MiniStarterCurrent = { nocombine = true },
-    -- MiniStarterFooter = { fg = c.yellow, italic = true },
+    -- MiniStarterFooter = { fg = c.yellow, italic = false },
     -- MiniStarterHeader = { fg = c.blue },
     -- MiniStarterInactive = { fg = c.comment, style = options.styles.comments },
     -- MiniStarterItem = { fg = c.fg, bg = options.transparent and c.none or c.bg },
