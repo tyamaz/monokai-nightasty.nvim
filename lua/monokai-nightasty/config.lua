@@ -13,7 +13,7 @@ local defaults = {
   sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
   hl_styles = {
     -- Style to be applied to different syntax groups. See `:help nvim_set_hl`
-    comments = { italic = true },
+    comments = { italic = false },
     keywords = { italic = false },
     functions = {},
     variables = {},
